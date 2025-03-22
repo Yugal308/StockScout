@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Stock Analysis Tool</h1>
+        <form id="uploadForm" class="upload-form" action="/process" method="post" enctype="multipart/form-data">
+            <input type="file" class="file-input" name="file" accept=".xlsx" required>
+            <button type="submit" class="submit-btn">Analyze Stocks</button>
+        </form>
+        <div class="loader" id="loader"></div>
+        <p id="status"></p>
+    </div>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function() {
+            document.getElementById('loader').style.display = 'block';
+            document.getElementById('status').textContent = 'Processing... Please wait';
+        });
+    </script>
+</body>
+</html>
