@@ -5,7 +5,7 @@ from script import process_excel
 
 app = Flask(__name__, 
             static_folder='static',
-            template_folder='templates')
+            template_folder='Templates')
 
 app.config['UPLOAD_FOLDER'] = 'uploads/'
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB limit
@@ -14,7 +14,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Create uploads directory if it doesn't exist
-for folder in [app.config['UPLOAD_FOLDER'], 'templates']:
+for folder in [app.config['UPLOAD_FOLDER'], 'Templates']:
     if not os.path.exists(folder):
         os.makedirs(folder)
         logger.info(f"Created directory: {folder}")
